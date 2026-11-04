@@ -3,13 +3,14 @@ name: Build Il2CppDumper
 on:
   push:
     branches: [ main, master ]
-workflow_dispatch:
+  workflow_dispatch:
+
 jobs:
   build:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@v4
     
     - name: Setup NDK
       run: |
@@ -26,7 +27,7 @@ jobs:
         mkdir -p artifacts
         cp -r libs/* artifacts/
         
-    - uses: actions/upload-artifact@v6
+    - uses: actions/upload-artifact@v4
       with:
         name: Il2CppDumper-v2.0.0
         path: artifacts/
